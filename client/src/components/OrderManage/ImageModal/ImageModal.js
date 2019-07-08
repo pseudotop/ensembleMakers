@@ -53,17 +53,8 @@ class ImageModal extends Component {
           <input 
             value="+"
             className="file-button"
-<<<<<<< HEAD
-	    readOnly
-            />
-=======
-            onChange={onChange}
+	        readOnly
           />
-<<<<<<< HEAD
->>>>>>> e9dec9366211efa414587c016c1dfa2fffa25b1b
-=======
->>>>>>> 93645bab5c434e8bb32282f5a2b2daa4495f5c7f
->>>>>>> 6648fe6a6f1705b5e87df8a9f126bcc43c7c75f6
           <input
             type="file"
             className="file-button-hidden"

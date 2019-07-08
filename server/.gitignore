@@ -27,3 +27,6 @@ src/index.js
 
 # uploads folder
 uploads/
+
+# client
+../client/
