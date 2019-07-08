@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ImageModal.scss';
 import { FaAngleLeft, FaAngleRight, FaTimes } from 'react-icons/fa';
-import { element } from 'prop-types';
+import MdAdd from 'react-ionicons/lib/MdAdd';
 
 class ImageModal extends Component {
 
@@ -53,8 +53,13 @@ class ImageModal extends Component {
           <input 
             value="+"
             className="file-button"
+<<<<<<< HEAD
 	    readOnly
             />
+=======
+            onChange={onChange}
+          />
+>>>>>>> 93645bab5c434e8bb32282f5a2b2daa4495f5c7f
           <input
             type="file"
             className="file-button-hidden"
