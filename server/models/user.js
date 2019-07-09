@@ -2,6 +2,7 @@ const Joi = require('joi');
 const mongoose = require('mongoose');
 const autoIncrement = require('mongoose-auto-increment');
 const uniqueValidator = require('mongoose-unique-validator');
+const shortid = require('shortid');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
@@ -10,6 +11,10 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     lowercase: true 
+  },
+  userNumber: {
+    type: Number,
+    required: true,
   },
   username: {
     type: String,
@@ -57,7 +62,15 @@ const userSchema = new Schema({
   timestamps: true
 });
 
-userSchema.plugin(uniqueValidator)
+userSchema.plugin(uniqueValidator);
+// autoIncrement 초기화
+autoIncrement.initialize(mongoose.connection);
+userSchema.plugin(autoIncrement.plugin, {
+  model: 'User', 
+  field: 'userNumber',
+  startAt: 1,
+  incrementBy: 1
+})
 
 const User = mongoose.model('User', userSchema);
 
