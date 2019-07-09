@@ -9,11 +9,11 @@ const orderSchema = new Schema({
     required: true,
     ref: "Customer"
   },
-  makerId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "User"
-  },
+//  makerId: {
+//    type: mongoose.Schema.Types.ObjectId,
+//    required: true,
+//    ref: "User"
+//  },
   orderNumber: {
     type: Number,
     required: true,
@@ -104,7 +104,7 @@ const Order = mongoose.model('Order', orderSchema);
 function validateOrder(order) {
   const schema = {
     customerId: Joi.string().required(),
-    makerId: Joi.string().required(),
+//    makerId: Joi.string().required(),
     model: Joi.string(),
     rightSize: Joi.string(),
     leftSize: Joi.string(),

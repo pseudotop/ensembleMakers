@@ -11,11 +11,6 @@ const userSchema = new Schema({
     unique: true,
     lowercase: true 
   },
-  userNumber: {
-    type: Number,
-    required: true,
-  }
-  ,
   username: {
     type: String,
     required: true,
