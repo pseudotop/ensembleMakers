@@ -1,65 +1,97 @@
 .print-page-wrapper {
   position: relative;
-  height: 1900px;
-  padding-left: 10rem;
+  height: 100%;
+  padding: 5rem 10rem;
 }
 
 .order-table-wrapper {
-  width: 90%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   height: 70%;
-  margin-top: 16rem;
-  border: 3px solid black;
+  margin-top: 4rem;
+  border: 5px solid black;
   border-collapse: collapse;
-  font-size: 3rem;
-  td, tr {
-    border: 3px solid black;
-  }
+  font-size: 4rem;
 }
 
-// .print-contents-row {
-//   display: table-row;
-//   width: 50%;
-// }
+.order-table-view {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  // height: 100%;
+  border: 5px solid grey;
+  font-size: 4rem;
+}
+
+.print-header-inform {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+}
+
+.print-footer-inform {
+  position: fixed;
+}
+
+.print-contents-row {
+  width: 100%;
+  border-bottom: 3px solid grey;
+}
 
 .print-contents-label {
-  width: 25%;
+  display: inline-block;
+  width: 50%;
   text-align: center;
   font-weight: 200;
+  background-color: #F4F4F4;
 }
 
 .print-contents-value {
-  width: 25%;
+  display: inline-block;
+  width: 50%;
   padding-left: 1rem;
   font-weight: 800;
 }
 
-.print-header-wrapper {
-  height: 10%;
-  padding-top: 4rem;
-}
-
-.print-header-name {
-  margin-top: 0.5rem;
+.print-banner-name {
+  width: 100%;
+  height: 30px;
+  padding: 5px;
   font-size: 4rem;
 }
-.print-header-date {
-  margin-top: 0.5rem;
-  font-size: 2rem;
+
+.print-header-wrapper {
+  padding-top: 4rem;
+  width: 100%;
 }
 
-.print-header-phone {
-  margin-top: 0.5rem;
-  font-size: 2rem;
+.print-header-orders {
+  display: inline-block;
+  width: 65%;
+  font-size: 3rem;
+  border-right: #F4F4F4 solid 3px;
+  border-collapse: collapse;
+  margin-top: 100px;
 }
 
-.print-header-address {
-  margin-top: 0.5rem;
-  font-size: 2rem;
+.print-header-element {
+  width: 35%;
+  height: 3rem;
+  margin: 2px;
+  td {
+    padding-left: 2rem;
+  }
 }
 
-.print-header-order-number {
-  margin-top: 0.5rem;
-  font-size: 2rem;
+.print-header-image {
+  display: inline-block;
+  width: 35%;
 }
 
 .print-contents-image {

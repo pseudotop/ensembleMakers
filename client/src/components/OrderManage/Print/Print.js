@@ -5,36 +5,15 @@ class Print extends Component {
   render() {
     const { name, phone, orderNumber, date, address, contents, detail, images } = this.props;
 
+    const numContentsList = contents.length;
     const contentsList = contents.template.map(
       function(content, i) {
-        if ( i > 6 && i%2 !== 0 && contents.template.length > i+1) {
-          return (
-            <tr key={i} className="print-contents-row" colSpan="4">
-              <td className="print-contents-label">{contents.template[i].label}+{i}</td>
-              <td className="print-contents-value">{contents.template[i].value}</td>
-              <td className="print-contents-label">{contents.template[i+1].label}+{i+1}</td>
-              <td className="print-contents-value">{contents.template[i+1].value}</td>
-            </tr>)
-        } 
-        else if (i > 6 && i%2 === 0 ) {
-          return
-        }
-        else {
-          return(
-            <tr key={i} className="print-contents-row">
-              <td className="print-contents-label">{content.label}+{i}</td>
-              <td className="print-contents-value">{content.value}</td>
-              {content.label === "모델" &&
-              <td rowSpan="7" colSpan="2" className="print-contents-image">
-                {images &&
-                  // <img className="print-image-wrapper" src={images[0]}/>
-                  <img src={images[0]}/>
-                }
-              </td>
-              }
-            </tr>
-            )    
-        }
+        return(
+          <div key={i} className="print-contents-row">
+            <div className="print-contents-label">{content.label}</div>
+            <div className="print-contents-value">{content.value}</div>
+          </div>
+        )    
       }    
     )
 
@@ -47,30 +26,40 @@ class Print extends Component {
       )
     }
 
+    const header = <div className="print-header-inform">https://esbmakers.com/order/{orderNumber}</div>    
+    const footer = <div className="print-footer-inform"></div>
+
     return(
       <div>
         <div className="print-page-wrapper">
+          {header}
+          <div className="print-banner-name">온라인 주문서</div>
           <div className="print-header-wrapper">
-            <div className="print-header-name">{name}</div>
-            <div className="print-header-phone">전화번호 {phone}</div>
-            <div className="print-header-order-number">주문번호 {orderNumber}</div>
-            <div className="print-header-date">주문날짜 {date}</div>
-            <div className="print-header-address">{address}</div>
+            <table className="print-header-orders">
+              <tbody>
+                <tr className="print-header-element"><td>주문자</td><td>{name} 고객님</td></tr>
+                <tr className="print-header-element"><td>전화번호</td><td>{phone}</td></tr>
+                <tr className="print-header-element"><td>주문번호</td><td>{orderNumber}</td></tr>
+                <tr className="print-header-element"><td>주문날짜</td><td>{date}</td></tr>
+                <tr className="print-header-element"><td>주소</td><td>{address}</td></tr>
+              </tbody>
+            </table>
+            <div className="print-header-image">
+              {images &&
+                // <img className="print-image-wrapper" src={images[0]}/>
+                <img src={images[0]}/>
+              }
+            </div>
           </div>
-          <table className="order-table-wrapper">
-            <tbody>
+          <div className="order-table-wrapper">
+            <div className="order-table-view">
               {contentsList}
-            <tr className="border-hidden-right">
-              <td colSpan="4"></td>
-            </tr>
-            <tr>
-              <td colSpan="4" className="print-contents-label">특이사항</td>
-            </tr>
-            <tr>
-              <td colSpan="4" className="print-contents-value2">{detail}</td>
-            </tr>
-            </tbody>
-          </table>
+            </div>
+            <div className="order-table-view">
+              <div className="print-contents-label" style={{width: "100%"}}>특이사항</div>
+              <div className="print-contents-value" style={{width: "100%"}}>{detail}</div>
+            </div>
+          </div>
         </div>
         {imageDivs}
       </div>
